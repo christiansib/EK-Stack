@@ -1,15 +1,50 @@
 version: '2'
 
 services:
-  elasticsearch:
+  es-master:
     build: elasticsearch/
     ports:
       - "9200:9200"
       - "9300:9300"
     environment:
-      ES_JAVA_OPTS: "-Xms2g -Xmx2g"
+      BM_ES_NODE_NAME: "es-master"
+      ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+      BM_ES_MASTER: "true"
+      BM_ES_DATA: "false"
     networks:
       - docker_elk
+  es-data-1:
+    build: elasticsearch/
+    ports:
+      - "9200"
+      - "9300"
+    environment:
+      BM_ES_NODE_NAME: "es-data-1"
+      ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+      BM_ES_MASTER: "false"
+      BM_ES_DATA: "true"
+    networks:
+      - docker_elk
+    depends_on:
+      - es-master
+    volumes:
+      - ./data-1:/usr/share/elasticsearch/data
+  es-data-2:
+    build: elasticsearch/
+    ports:
+      - "9200"
+      - "9300"
+    environment:
+      BM_ES_NODE_NAME: "es-data-2"
+      ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+      BM_ES_MASTER: "false"
+      BM_ES_DATA: "true"
+    networks:
+      - docker_elk
+    volumes:
+      - ./data-2:/usr/share/elasticsearch/data
+    depends_on:
+      - es-master
   logstash:
     build: logstash/
     command: -f /etc/logstash/conf.d/
@@ -20,7 +55,9 @@ services:
     networks:
       - docker_elk
     depends_on:
-      - elasticsearch
+      - es-master
+    links:
+      - es-master:elasticsearch
   kibana:
     build: kibana/
     volumes:
@@ -30,7 +67,9 @@ services:
     networks:
       - docker_elk
     depends_on:
-      - elasticsearch
+      - es-master
+    links:
+      - es-master:elasticsearch
 
 networks:
   docker_elk:

@@ -1,7 +1,7 @@
 server.port: 5601
 server.host: "0.0.0.0"
 
-# use the "elasticsearch" hostname, which exists in our docker network
+# use the "es-master" hostname, which exists in our docker network
 elasticsearch.url: "http://elasticsearch:9200"
 
 # create an index in ES for dashboards etc..
