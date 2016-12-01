@@ -6,7 +6,7 @@ Cyber Incident Monitor im Projekt Beemaster
 
 Vorerst wird der volle ELK Stack genutzt. Die einzelnen Komponenten finden sich in Dockerisierter Form in den entsprechenden Ordnern.
 
-####Run
+#### Run
 
 Das hier scheint notwendig zu sein, muss auf dem **Docker-Host** ausgeührt werden (sprich DEINEM Laptop):
 `sysctl -w vm.max_map_count=262144`
