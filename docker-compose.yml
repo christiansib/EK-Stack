@@ -4,8 +4,8 @@ services:
   es-master:
     build: elasticsearch/
     ports:
-      - "9200:9200"
-      - "9300:9300"
+      - "9200"
+      - "9300"
     environment:
       BM_ES_NODE_NAME: "es-master"
       ES_JAVA_OPTS: "-Xms1g -Xmx1g"
@@ -51,7 +51,7 @@ services:
     volumes:
       - ./logstash/config:/etc/logstash/conf.d/
     ports:
-      - "5000:5000"
+      - "5000"
     networks:
       - docker_elk
     depends_on:
