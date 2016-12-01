@@ -28,7 +28,7 @@ services:
     depends_on:
       - es-master
     volumes:
-      - ./data-1:/usr/share/elasticsearch/data
+      - /var/cim-data/data-1:/usr/share/elasticsearch/data
   es-data-2:
     build: elasticsearch/
     ports:
@@ -42,7 +42,7 @@ services:
     networks:
       - docker_elk
     volumes:
-      - ./data-2:/usr/share/elasticsearch/data
+      - /var/cim-data/data-2:/usr/share/elasticsearch/data
     depends_on:
       - es-master
   logstash:
