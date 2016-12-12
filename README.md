@@ -22,5 +22,9 @@ Alternativ kann auch das `run.sh` Script genutzt werden.
 
 #### Use
 
-Auf deinem Rechner werden nun Ports exportiert. Du kannst über `localhost:5601` die Weboberfläche von Kibana besuchen. Wunder dich nicht, die Indices sind leer und auch sonst kann man grade nicht viel tun.
+Auf deinem Rechner werden nun Ports exportiert. Du kannst über `localhost:5600` die Weboberfläche von Kibana besuchen. Wunder dich nicht, die Indices sind leer und auch sonst kann man grade nicht viel tun.
 Auf `localhost:5000` kannst du Logstash Daten übergeben, mit denen passiert aber noch nichts sinnvolles.
+
+#### Logstash
+
+Im Ordner `logstash/config` liegt eine rudimentäre Beispielconfig. Wenn man diese Config ändert, muss man den container neu bauen - dazu sollte es in unserem Fall ausreichen, die `run.sh` erneut auszuführen. Die Config wird in den Logstash Container kopiert.
