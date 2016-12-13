@@ -50,6 +50,8 @@ services:
     command: -f /etc/logstash/conf.d/
     volumes:
       - ./logstash/config:/etc/logstash/conf.d/
+      - /var/log/bro-master:/var/log/bro-master
+      - /var/log/logstash:/var/log/logstash
     networks:
       - docker_elk
     depends_on:
