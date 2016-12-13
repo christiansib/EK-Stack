@@ -3,7 +3,7 @@ version: '2'
 services:
   es-master:
     build: elasticsearch/
-    ports:
+    expose:
       - "9200"
       - "9300"
     environment:
@@ -15,7 +15,7 @@ services:
       - docker_elk
   es-data-1:
     build: elasticsearch/
-    ports:
+    expose:
       - "9200"
       - "9300"
     environment:
@@ -31,7 +31,7 @@ services:
       - /var/cim-data/data-1:/usr/share/elasticsearch/data
   es-data-2:
     build: elasticsearch/
-    ports:
+    expose:
       - "9200"
       - "9300"
     environment:
