@@ -1,3 +1,4 @@
 FROM logstash:5
 
-# use the official upstream repo from elastic.co. NO TROUBLE! :)
+# mount the following properly:
+CMD ["-f", "/etc/logstash/conf.d"]
