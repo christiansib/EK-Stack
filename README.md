@@ -8,7 +8,7 @@ Vorerst wird der volle ELK Stack genutzt. Die einzelnen Komponenten finden sich 
 
 #### Run
 
-Das hier scheint notwendig zu sein, muss auf dem **Docker-Host** ausgeührt werden (sprich DEINEM Laptop):
+Das hier scheint notwendig zu sein, muss auf dem **Docker-Host** ausgeührt werden (sprich DEINEM Laptop bzw. dem Server) :
 `sysctl -w vm.max_map_count=262144`. Das Setting legt fest, wie viel Elasticsearch (Java VM) maximal an Memory allockieren darf. Und es möchte gerne mehr als den Standard haben.
 
 Anschließend ein kleines Setup mit einer ES Node, einem Kibana und einem LS starten:
@@ -28,3 +28,11 @@ Auf `localhost:5000` kannst du Logstash Daten übergeben, mit denen passiert abe
 #### Logstash
 
 Im Ordner `logstash/config` liegt eine rudimentäre Beispielconfig. Wenn man diese Config ändert, muss man den container neu bauen - dazu sollte es in unserem Fall ausreichen, die `run.sh` erneut auszuführen. Die Config wird in den Logstash Container kopiert.
+
+
+## CIM Server Deployment
+
+Es gibt ein `cim-up.sh` script, das genutzt werden sollte, wenn das CIM auf dem Server gestartet wird. Es entkoppelt den Prozess von der aktuellen Session und schreibt alles, was die Container zu sagen haben in eine Logdatei. Das ist wichtig, denn wenn wirklich mal was kaputt geht und die Uni Logs sehen will, dann haben wir sie.
+
+Kopiere den CIM Ordner nach `/opt`, setze die Berechtigungen falls nötig und führe `./cim-up.sh` aus.
+
