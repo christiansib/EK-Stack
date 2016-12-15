@@ -62,10 +62,8 @@ services:
     build: kibana/
     volumes:
       - ./kibana/config/:/opt/kibana/config/
-    expose:
-      - "5600"
     ports:
-      - "5601"
+      - "127.0.0.1:5600:5601"
     networks:
       - docker_elk
     depends_on:
