@@ -28,7 +28,7 @@ services:
     depends_on:
       - es-master
     volumes:
-      - /var/cim-data/data-1:/usr/share/elasticsearch/data
+      - /var/beemaster/cim-data/data-1:/usr/share/elasticsearch/data
   es-data-2:
     build: elasticsearch/
     expose:
@@ -42,7 +42,7 @@ services:
     networks:
       - docker_elk
     volumes:
-      - /var/cim-data/data-2:/usr/share/elasticsearch/data
+      - /var/beemaster/cim-data/data-2:/usr/share/elasticsearch/data
     depends_on:
       - es-master
   logstash:
@@ -50,8 +50,8 @@ services:
     command: -f /etc/logstash/conf.d/
     volumes:
       - ./logstash/config:/etc/logstash/conf.d/
-      - /var/log/bro-master:/var/log/bro-master
-      - /var/log/logstash:/var/log/logstash
+      - /var/beemaster/log/bro-master:/var/log/bro-master
+      - /var/beemaster/log/logstash:/var/log/logstash
     networks:
       - docker_elk
     depends_on:
