@@ -36,3 +36,13 @@ Es gibt ein `cim-up.sh` script, das genutzt werden sollte, wenn das CIM auf dem 
 
 Kopiere den CIM Ordner nach `/opt`, setze die Berechtigungen falls nötig und führe `./cim-up.sh` aus.
 
+## Initial Index Creation
+
+Leider tritt mit der aktuellen ES Version ein Fehlverhalten für den ersten Start der Software auf. Elasticsearch bleibt in einer Loop gefangen, in der neue Indices nicht korrekt erstellt werden.
+
+Die Lösung (nur beim ersten Start!!!!) ist, einmal alle Indices zu löschen und sie wieder neu erstellen zu lassen.
+
+```
+docker exec -ti mpidscim_es-master_1 bash
+curl -XDELETE http://localhost:9200/.kibana
+```

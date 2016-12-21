@@ -1,12 +1,13 @@
 node.master: ${BM_ES_MASTER}
 node.data: ${BM_ES_DATA}
 
-# x-pack indices
-action.auto_create_index: .security,.monitoring*,.watches,.triggered_watches,.watcher-history*
+# auto indices
+action.auto_create_index: .kibana,logstash-*.security,.monitoring*,.watches,.triggered_watches,.watcher-history*
 
+xpack.security.enabled: false
 
-discovery.zen.minimum_master_nodes: 1
-bootstrap.memory_lock: true
+bootstrap.seccomp: false
+bootstrap.memory_lock: false
 
 # ======================== Elasticsearch Configuration =========================
 #
@@ -76,11 +77,11 @@ network.host: 0.0.0.0
 # Pass an initial list of hosts to perform discovery when new node is started:
 # The default list of hosts is ["127.0.0.1", "[::1]"]
 #
-#discovery.zen.ping.unicast.hosts: ["host1", "host2"]
+discovery.zen.ping.unicast.hosts: ["es-master"]
 #
 # Prevent the "split brain" by configuring the majority of nodes (total number of nodes / 2 + 1):
 #
-discovery.zen.minimum_master_nodes: 3
+discovery.zen.minimum_master_nodes: 1
 #
 # For more information, see the documentation at:
 # <https://www.elastic.co/guide/en/elasticsearch/reference/5.0/modules-discovery-zen.html>
