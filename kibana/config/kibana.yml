@@ -4,6 +4,8 @@ server.host: "0.0.0.0"
 # use the "es-master" hostname, which exists in our docker network
 elasticsearch.url: "http://elasticsearch:9200"
 
+xpack.security.enabled: false
+
 # create an index in ES for dashboards etc..
 kibana.index: ".kibana"
 
