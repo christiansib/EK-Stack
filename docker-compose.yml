@@ -11,6 +11,8 @@ services:
       ES_JAVA_OPTS: "-Xms1g -Xmx1g"
       BM_ES_MASTER: "true"
       BM_ES_DATA: "false"
+    volumes:
+      - ./elasticsearch/config:/usr/share/elasticsearch/config
     networks:
       - docker_elk
   es-data-1:
@@ -28,6 +30,7 @@ services:
     depends_on:
       - es-master
     volumes:
+      - ./elasticsearch/config:/usr/share/elasticsearch/config
       - /var/beemaster/cim-data/data-1:/usr/share/elasticsearch/data
   es-data-2:
     build: elasticsearch/
@@ -42,6 +45,7 @@ services:
     networks:
       - docker_elk
     volumes:
+      - ./elasticsearch/config:/usr/share/elasticsearch/config
       - /var/beemaster/cim-data/data-2:/usr/share/elasticsearch/data
     depends_on:
       - es-master
