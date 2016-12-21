@@ -2,7 +2,8 @@ node.master: ${BM_ES_MASTER}
 node.data: ${BM_ES_DATA}
 
 # auto indices
-action.auto_create_index: .kibana,logstash-*.security,.monitoring*,.watches,.triggered_watches,.watcher-history*
+action.auto_create_index: true
+#.kibana,logstash-*.security,.monitoring*,.watches,.triggered_watches,.watcher-history*
 
 xpack.security.enabled: false
 
