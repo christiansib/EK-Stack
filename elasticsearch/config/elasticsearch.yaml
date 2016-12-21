@@ -1,6 +1,10 @@
 node.master: ${BM_ES_MASTER}
 node.data: ${BM_ES_DATA}
 
+# x-pack indices
+action.auto_create_index: .security,.monitoring*,.watches,.triggered_watches,.watcher-history*
+
+
 discovery.zen.minimum_master_nodes: 1
 bootstrap.memory_lock: true
 
