@@ -1,0 +1,8 @@
+ --- Init ---
+/usr/bin/docker: Error response from daemon: invalid header field value "oci runtime error: container_linux.go:247: starting container process caused \"process_linux.go:245: running exec setns process for init caused \\\"exit status 6\\\"\"\n".
+ --- Bot used 609 milliseconds ---
+-----------------------------------------------------------------------------
+ --- Frame #1 ---
+
+ERRORED!
+No response received.
