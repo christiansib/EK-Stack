@@ -1,46 +1,63 @@
 # CIM
 
-Cyber Incident Monitor im Projekt Beemaster
+Cyber Incident Monitor im Projekt Beemaster.
 
 ## ELK Stack
 
-Vorerst wird der volle ELK Stack genutzt. Die einzelnen Komponenten finden sich in Dockerisierter Form in den entsprechenden Ordnern.
+Zur Logaggregation, Persistenz und Visualisierung wird der ELK Stack genutzt. Die einzelnen Komponenten finden sich in dockerisierter Form in den entsprechenden Ordnern.
+
+## Cluster Aufbau
+
+Zum Start verwenden alle Skripte das in diesem Repo befindliche `docker-compose.yml`. Darin findet sich eine Service-Komposition zum Starten eines Kibana und Logstash, sowie 3 Elasticsearch Nodes, aufgeteilt in einen Master und zwei Slaves. Über Umgebungsvariablen wird den einzelnen Cluster Komponenten mitgeteilt, welchem Einsatzzweck sie dienen, dementsprechend werden ggf andere Konfigurationsparameter verwendet (ES slave / master).
+
+**Achtung**: Es sollteen mindestens 8GB RAM auf dem Hostsystem für das CIM zur Verfügung stehen
+
 
 #### Run
 
-Das hier scheint notwendig zu sein, muss auf dem **Docker-Host** ausgeührt werden (sprich DEINEM Laptop bzw. dem Server) :
-`sysctl -w vm.max_map_count=262144`. Das Setting legt fest, wie viel Elasticsearch (Java VM) maximal an Memory allockieren darf. Und es möchte gerne mehr als den Standard haben.
+Siehe auch weiter unten für die [initiale Index-Erzeugung](#init_es) bei Elasticsearch.
 
-Anschließend ein kleines Setup mit einer ES Node, einem Kibana und einem LS starten:
-`docker-compose up`
-Dafür muss docker-compose installiert sein.
+Elasticsearch benötigt per default einen großen ``mmap`` count, es muss folgender Befehl ausgeführt werden auf jedem Elasticsearch Hostsystem: `sysctl -w vm.max_map_count=262144`. Eine genaue Beschreibung findet sich [hier](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html). Diese Einstellung wird vom `run.sh` Skript in diesem Repository automatisch mit gesetzt; dieses Skript sollte zum starten verwendet werden. Ob das CIM korrekt gestartet wurde, kann man `docker ps` verifiziert werden.
 
-Alternativ kann auch das `run.sh` Script genutzt werden.
+###### Server deployment
 
-**Achtung**: Du solltest mindestens 8GB RAM auf deinem Laptop / Rechner zur Verfügung haben. Sonst wirds ungemütlich.
+Für Starts des CIM auf einem Server sollte das `cim-up.sh` Skript verwendet werden. Es schreibt einen mit Datum versehenen Log und forked sämtliche Prozesse in den Hintergrund.
+
+###### Manueller Start
+
+Das `docker-compose.yml` aus diesem Repository kann direkt zum manuellen Start des CIM verwendet werden: `docker-compose up --build`
 
 
-#### Use
+## Use
 
-Auf deinem Rechner werden nun Ports exportiert. Du kannst über `localhost:5600` die Weboberfläche von Kibana besuchen. Wunder dich nicht, die Indices sind leer und auch sonst kann man grade nicht viel tun.
-Auf `localhost:5000` kannst du Logstash Daten übergeben, mit denen passiert aber noch nichts sinnvolles.
+Auf dem Hostsystem wird nach Start des CIM ein Port exportiert. Dieser kann beispielsweise mit `netstat -tulpen` inspiziert werden. Es sollte lediglich `127.0.0.1:5600` exportiert werden. Dahinter lauscht das Kibana Webinterface. Restliche, Cluster-interne Kommunikation findet in einem Docker Subnet statt.
+
+Kibana ist damit noch nicht von Außerhalb des Hostsystems erreichbar, denn es bindet nicht auf 0.0.0.0. Das hat den Grund, dass wir im Beemaster Projekt einen Reverseproxy mit BasicAuth und Https verwenden, um das Kibana vor unbefugten Zugriffen zu schützen. 
+
+Dieser Port-Export kann in der `docker-compose.yml` geändert werden, Kibana kann öffentlich unter bspw. Port 5601 erreichbar gemacht werden indem 
+```
+ports:
+  - "127.0.0.1:5600:5601"
+```
+geändert wird zu
+```
+ports:
+  - "5601:5601"
+```
+
 
 #### Logstash
 
-Im Ordner `logstash/config` liegt eine rudimentäre Beispielconfig. Wenn man diese Config ändert, muss man den container neu bauen - dazu sollte es in unserem Fall ausreichen, die `run.sh` erneut auszuführen. Die Config wird in den Logstash Container kopiert.
+Logstash aggregiert sämtliche vom Bro Master erstellten Logs. Diese Logs müssen für Logstash zugänglich gemacht werden. Im Beemaster Projekt geschieht dies über ein Mountvolume. Der Ordner, in dem der Bro Master seine Logdateien ablegt, wird in den Logstash Container gemounted. Auch dies kann in der `docker-compose.yml` geändert werden.
 
+Im Ordner `logstash/config` liegt die verwendete Konfiguration. Für jede von Bro erstellte Datei gibt es dort ein eigenen eigenen Block.
 
-## CIM Server Deployment
-
-Es gibt ein `cim-up.sh` script, das genutzt werden sollte, wenn das CIM auf dem Server gestartet wird. Es entkoppelt den Prozess von der aktuellen Session und schreibt alles, was die Container zu sagen haben in eine Logdatei. Das ist wichtig, denn wenn wirklich mal was kaputt geht und die Uni Logs sehen will, dann haben wir sie.
-
-Kopiere den CIM Ordner nach `/opt`, setze die Berechtigungen falls nötig und führe `./cim-up.sh` aus.
-
-## Initial Index Creation
+<a name="init_es"/>
+#### Elasticsearch Initiale Index Erzeugung
 
 Leider tritt mit der aktuellen ES Version ein Fehlverhalten für den ersten Start der Software auf. Elasticsearch bleibt in einer Loop gefangen, in der neue Indices nicht korrekt erstellt werden.
 
-Die Lösung (nur beim ersten Start!!!!) ist, einmal alle Indices zu löschen und sie wieder neu erstellen zu lassen.
+Die Lösung (nur beim ersten Start!) ist, einmal alle Indices zu löschen und sie wieder neu erstellen zu lassen.
 
 ```
 docker exec -ti mpidscim_es-master_1 bash
