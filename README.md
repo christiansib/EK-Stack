@@ -63,3 +63,9 @@ Die Lösung (nur beim ersten Start!) ist, einmal alle Indices zu löschen und si
 docker exec -ti mpidscim_es-master_1 bash
 curl -XDELETE http://localhost:9200/.kibana
 ```
+
+#### Elasticsearch Feld Indizierung
+
+Damit Elasticsearch die Felder der gespeicherten JSON Nachrichten richtig durchsuchbar macht, müssen diese bekannt gemacht werden. 
+
+In der Kibana Weboberfläche zunächst auf `Management` klicken, dann dort den `logstash-*` Index auswählen und das orange `refresh` Symbol einmal klicken. 
