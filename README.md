@@ -18,7 +18,7 @@ The [docker-compose](docker-compose.yaml) file of this repository is used for st
 
 For starting you should use [`run.sh`](run.sh). At the first startup, you have to initialize the Elasticsearch index. See below for [initial index creation](#init_es)
 
-By default, Elasticsearch needs some quite big ``mmap`` count. For ES being able to start, the following command has to be run on the Elasticsearch host system (not inside the container, real host): `sysctl -w vm.max_map_count=262144`. Please find more detail in the official [docs](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html). This property is set automatically by the `run.sh` script. To verify the CIM started correctly, use `docker ps`.
+By default, Elasticsearch needs some quite big ``mmap`` count. For ES being able to start, the following command has to be run on the Elasticsearch hostsystem (not inside the container, real host): `sysctl -w vm.max_map_count=262144`. Please find more detail in the official [docs](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html). This property is set automatically by the `run.sh` script. To verify the CIM started correctly, use `docker ps`.
 
 ###### Server deployment
 
@@ -31,9 +31,9 @@ The `docker-compose.yml` of this repo can be used to start the CIM manually: `do
 
 ## Usage
 
-After starting the CIM, one port gets bound to hostsystem. You can inspect it with eg `netstat -tulpen`. The only exposed port should be `127.0.0.1:5600` (global expose is wanted, only local). Kibana is listening behind this port. All other internal cluster communcation is boxed by Docker subnet.
+After starting the CIM, one port gets bound to the hostsystem. You can inspect it with eg `netstat -tulpen`. The only exposed port should be `127.0.0.1:5600` (global expose is not wanted, only local). Kibana is listening behind this port. All other internal cluster communcation is boxed by a Docker subnet.
 
-This way, Kibana is not reachable from outside the hostsystem, since it does not bind to `0.0.0.0`. This is because for Beemaster, a reverseproxy with HTTPS and BasicAuth is used for security reasons.
+This way, Kibana is not reachable from outside the hostsystem, since it does not bind to `0.0.0.0`. This is because at Beemaster we use a reverseproxy with HTTPS and BasicAuth for security reasons.
 
 ##### Port accessability
 
@@ -71,4 +71,4 @@ curl -XDELETE http://localhost:9200/.kibana
 
 ##### Field indexing
 
-For ES being able to search the JSON message fields correctly, it has to be analyzed. Go to the Kibana webinterface and click `Management`, then `Index patterns`. Select the `logstash-*` index and then hit the orange `refresh` button. This makes ES index all fields that are unknown to it (eg. if you have a new log file you want to start viszualizing).
+For ES being able to search the JSON message fields correctly, the message fields have to be analyzed. Go to the Kibana webinterface and click `Management`, then `Index patterns`. Select the `logstash-*` index and then hit the orange `refresh` button. This makes ES index all fields that are unknown to it (eg. if you have a new log file you want to start viszualizing).
