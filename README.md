@@ -1,4 +1,4 @@
-# CIM
+# MP-IDS Cyber Incident Monitor[^1]
 
 The Beemaster cyber incident monitor (CIM) features the visualization of (meta) alerts and allows to inspect and search the log files containing them.
 
@@ -7,7 +7,7 @@ The Beemaster cyber incident monitor (CIM) features the visualization of (meta) 
 
 The ELK stack is used for log file aggregation (Logstash), persistency/search (Elasticsearch) and visualization (Kibana). A Docker setup for the different components is to be found in the respective folders.
 
-## Cluster setup
+## Cluster Setup
 
 The [docker-compose](docker-compose.yml) file of this repository is used for starting a CIM cluster. It consists of one Logstash and one Kibana node, as well as three Elasticsearch (ES) nodes. The ES nodes are splitted into one master and two slaves. The slaves are solely responsible for persisting data and mirrored copies of each other. Environment variables are used to decide the purpose of a cluster node.
 
@@ -57,7 +57,7 @@ The Logstash configuration can be found at `logstash/config`. The configuration 
 
 <a name="init_es"/>
 #### Elasticsearch
-##### Initial index creation
+##### Initial Index Creation
 
 Unfortunately, there exists a bug in the current Elasticsearch version 5.1.1. ES falls into a loop failing to create empty indices.
 
@@ -72,3 +72,5 @@ curl -XDELETE http://localhost:9200/.kibana
 ##### Field Indexing
 
 The message fields have to be analysed, otherwise ES is not able to search the JSON message fields correctly. Go to the Kibana web interface and click `Management`, then `Index patterns`. Select the `logstash-*` index and hit the orange `refresh` button. This makes ES index all fields that are unknown to it (e.g. if you have a new log file you want to start visualizing).
+
+[^1]: A German version of this readme can be found at: [README.md@87bcc8e5](https://git.informatik.uni-hamburg.de/iss/mp-ids-cim/blob/87bcc8e5c2bfeeb5940700ea70edfe16e78aaec7/README.md) (remove this footnote if the German version is outdated!)
