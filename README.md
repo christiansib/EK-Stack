@@ -55,10 +55,11 @@ Logstash is used for log aggregation of all Bro master log files. These files ha
 
 The Logstash configuration can be found at `logstash/config`. The configuration features one block of parsing instructions per log file.
 
-<a name="init_es"/>
 #### Elasticsearch
+
 ##### Initial Index Creation
 
+<a name="init_es"/>
 Unfortunately, there exists a bug in the current Elasticsearch version 5.1.1. ES falls into a loop failing to create empty indices.
 
 The solution (only for the very first start!) is to clean and recreate the `.kibana` index once.
@@ -76,6 +77,6 @@ The message fields have to be analysed, otherwise ES is not able to search the J
 
 ## License attributions
 
-The whole Elasticstack is licensed under the Apache License v2 ([Elasticsearch](https://github.com/elastic/elasticsearch/blob/master/LICENSE.txt), [Logstash](https://github.com/elastic/logstash/blob/master/LICENSE), [Kibana](https://github.com/elastic/kibana/blob/master/LICENSE.md))
+The whole Elasticstack is licensed under the Apache License v2 ([Elasticsearch](https://github.com/elastic/elasticsearch/blob/master/LICENSE.txt), [Logstash](https://github.com/elastic/logstash/blob/master/LICENSE), [Kibana](https://github.com/elastic/kibana/blob/master/LICENSE.md)).
 
 Beemaster does solely use the Elastic software without any modification of source code. All credits regarding any Elastic product to the respective creators of those projects. Beemaster does not claim to own, modify or redistribute any of the used software components. The applied MIT license only regards the work done during the Beemaster project, including but not limitting to the creation of dashboards, provided scripts and configuration files.
