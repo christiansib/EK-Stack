@@ -1,4 +1,4 @@
-# MP-IDS Cyber Incident Monitor
+# Beemaster: Cyber Incident Monitor
 
 The Beemaster cyber incident monitor (CIM) features the visualization of (meta) alerts and allows to inspect and search the log files containing them.
 
@@ -77,6 +77,6 @@ The message fields have to be analysed, otherwise ES is not able to search the J
 
 ## License attributions
 
-The whole Elasticstack is licensed under the Apache License v2 ([Elasticsearch](https://github.com/elastic/elasticsearch/blob/master/LICENSE.txt), [Logstash](https://github.com/elastic/logstash/blob/master/LICENSE), [Kibana](https://github.com/elastic/kibana/blob/master/LICENSE.md)).
+The whole Elastic Stack is licensed under the Apache License v2 ([Elasticsearch](https://github.com/elastic/elasticsearch/blob/master/LICENSE.txt), [Logstash](https://github.com/elastic/logstash/blob/master/LICENSE), [Kibana](https://github.com/elastic/kibana/blob/master/LICENSE.md)).
 
 Beemaster does solely use the Elastic software without any modification of source code. All credits regarding any Elastic product to the respective creators of those projects. Beemaster does not claim to own, modify or redistribute any of the used software components. The applied MIT license only regards the work done during the Beemaster project, including but not limitting to the creation of dashboards, provided scripts and configuration files.
