@@ -1,0 +1,14 @@
+curl -XPUT 'localhost:9200/honeypot?pretty' -H 'Content-Type: application/json' -d'
+{
+  "mappings": {
+    "_default_": {
+      "properties": {
+        "date": {
+          "type":   "date",
+          "format": "yyyy-MM-dd'\''T'\''HH:mm:ss.SSSSSS"
+        }
+      }
+    }
+  }
+}
+'

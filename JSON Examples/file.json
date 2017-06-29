@@ -1,0 +1,20 @@
+{"index":{"_id":"2017-07-05T10:00:00.000000"}}
+{"date":"2017-07-05T10:00:00.000000", "service":"ftp","ip":"186.114.182.126", "port":"1234", "file":"/canhaz/gemini-6.json", "user":"Chris"}
+{"index":{"_id":"2017-07-05T10:00:00.000001"}}
+{"date":"2017-07-05T11:00:00.000000","service":"ftp","ip":"186.114.182.126", "port":"2222", "file":"/canhaz/gemini-6.json", "user":"Maik"}
+{"index":{"_id":"2017-07-05T10:00:00.000002"}}
+{"date":"2017-07-05T12:00:00.000000","service":"ftp","ip":"186.111.182.126", "port":"5656", "file":"/canhaz/gemini-6.json", "user":"Peter"}
+{"index":{"_id":"2017-07-05T10:00:00.000003"}}
+{"date":"2017-07-05T13:00:00.000000","service":"ftp","ip":"186.111.182.126", "port":"4565", "file":"/canhaz/gemini-6.json", "user":"Peter"}
+{"index":{"_id":"2017-07-05T10:00:00.000004"}}
+{"date":"2017-07-05T14:00:00.000000","service":"ftp","ip":"186.111.182.126", "port":"5656", "file":"/canhaz/gemini-6.json", "user":"Peter"}
+{"index":{"_id":"2017-07-05T10:00:00.000005"}}
+{"date":"2017-07-05T15:00:00.000000","service":"ftp","ip":"186.112.182.126", "port":"5454", "file":"/canhaz/gemini-6.json", "user":"Peter"}
+{"index":{"_id":"2017-07-05T10:00:00.000006"}}
+{"date":"2017-07-05T16:00:00.000000","service":"ftp","ip":"186.112.182.126", "port":"5565", "file":"/canhaz/gemini-6.json", "user":"Petergfgf"}
+{"index":{"_id":"2017-07-05T10:00:00.000007"}}
+{"date":"2017-07-05T17:00:00.000000","service":"ftp","ip":"186.114.182.126", "port":"1989", "file":"/canhaz/gemini-6.json", "user":"Peter123"}
+{"index":{"_id":"2017-07-05T10:00:00.000008"}}
+{"date":"2017-07-05T18:00:00.000000","service":"ftp","ip":"186.124.182.126", "port":"2222", "file":"/canhaz/gemini-6.json", "user":"Peter123"}
+{"index":{"_id":"2017-07-05T10:00:00.000009"}}
+{"date":"2017-07-05T19:00:00.000000","service":"ftp","ip":"186.124.182.126", "port":"9999", "file":"/canhaz/gemini-6.json", "user":"Peter123"}

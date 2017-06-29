@@ -1,0 +1,22 @@
+{"index":{"_id":"2017-07-05T10:00:00.000000"}}
+{"date":"2017-07-05T10:00:00.000000","service": "ftp","ip":"186.124.182.126", "port":"1234", "successful": "true", "user":"Peter", "key":"Passwort54", "actual": "ftp"}
+{"index":{"_id":"2017-07-05T10:00:00.000001"}}
+{"date":"2017-07-05T11:00:00.000000","service": "smb","ip":"186.124.182.126", "port":"3445", "successful": "true", "user":"Peterhehd", "key":"Passwort54", "actual": "smb"}
+{"index":{"_id":"2017-07-05T10:00:00.000003"}}
+{"date":"2017-07-05T12:00:00.000000","service": "http","ip":"186.124.182.126", "port":"5555", "honeypotid":"Honeypot1", "successful": "false", "user":"Peterhehd", "key":"Passwort54", "actual": "http"}
+{"index":{"_id":"2017-07-05T10:00:00.000004"}}
+{"date":"2017-07-05T13:00:00.000000","service": "http","ip":"186.124.182.126", "port":"5656", "honeypotid":"Honeypot2","successful": "true", "user":"Mama", "key":"Passworjkdnclkjt54", "actual": "http"}
+{"index":{"_id":"2017-07-05T10:00:00.000005"}}
+{"date":"2017-07-05T14:00:00.000000","service": "http","ip":"186.124.182.126", "port":"5445", "honeypotid":"Honeypot3","successful": "false", "user":"Papa", "key":"Passwokldncrt54", "actual": "http"}
+{"index":{"_id":"2017-07-05T10:00:00.000006"}}
+{"date":"2017-07-05T15:00:00.000000","service": "ftp","ip":"188.124.182.126", "port":"5445", "honeypotid":"Honeypot4","successful": "true", "user":"Chris", "key":"Passwort5kdsnncs4", "actual": "ftp"}
+{"index":{"_id":"2017-07-05T10:00:00.000007"}}
+{"date":"2017-07-05T16:00:00.000000","service": "ftp","ip":"188.124.182.126", "port":"5445", "honeypotid":"Honeypot5","successful": "true", "user":"Erdmund", "key":"Passwort5jshd4", "actual": "ftp"}
+{"index":{"_id":"2017-07-05T10:00:00.000008"}}
+{"date":"2017-07-05T17:00:00.000000","service": "http","ip":"180.124.182.126", "port":"5445", "honeypotid":"Honeypot6","successful": "false", "user":"lalala", "key":"Passwort54", "actual": "http"}
+{"index":{"_id":"2017-07-05T10:00:00.000009"}}
+{"date":"2017-07-05T18:00:00.000000","service": "ftp","ip":"180.124.182.126", "port":"5445", "honeypotid":"Honeypot3","successful": "false", "user":"Peter", "key":"Passwort54", "actual": "ftp"}
+{"index":{"_id":"2017-07-05T10:00:00.000010"}}
+{"date":"2017-07-05T19:00:00.000000","service": "smb","ip":"185.124.182.126", "port":"5444", "honeypotid":"Honeypot5","successful": "true", "user":"Peter", "key":"Passwort5ff4", "actual": "smb"}
+{"index":{"_id":"2017-07-05T10:00:00.000011"}}
+{"date":"2017-07-05T20:00:00.000000","service": "smb","ip":"185.124.182.126", "port":"4444", "honeypotid":"Honeypot2","successful": "true", "user":"Peter", "key":"Passwort5ff4", "actual": "smb"}

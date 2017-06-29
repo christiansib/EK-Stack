@@ -1,0 +1,34 @@
+{"index":{"_id":"2017-07-05T10:00:00.000000"}}
+{"date":"2017-07-05T10:00:00.000000","service": "ftp","ip":"186.124.182.126", "port":"8888","request":"/canhaz/gemini-6.gif", "user":"Peter"}
+{"index":{"_id":"2017-07-05T10:00:00.000001"}}
+{"date":"2017-07-05T11:00:00.000000","service": "ftp","ip":"186.124.182.126", "port":"8888","request":"/canhaz/gemini-5.gif", "user":"Peter"}
+{"index":{"_id":"2017-07-05T10:00:00.000002"}}
+{"date":"2017-07-05T12:00:00.000000","service": "ftp","ip":"186.124.182.126", "port":"4000","request":"/canhaz/gemini-5.gif", "user":"Peter123"}
+{"index":{"_id":"2017-07-05T10:00:00.000003"}}
+{"date":"2017-07-05T13:00:00.000000","service": "ftp","ip":"186.124.182.126", "port":"3445","request":"/canhaz/gemini-6.gif", "user":"Peter123"}
+{"index":{"_id":"2017-07-05T10:00:00.000004"}}
+{"date":"2017-07-05T14:00:00.000000","service": "ftp","ip":"186.124.182.126", "port":"3121","request":"/canhaz/gemini-66.gif", "user":"Peter123"}
+{"index":{"_id":"2017-07-05T10:00:00.000005"}}
+{"date":"2017-07-05T15:00:00.000000","service": "ftp","ip":"186.124.182.126", "port":"3445","request":"/canhaz/gemini-66666.gif", "user":"Peter123"}
+{"index":{"_id":"2017-07-05T10:00:00.000006"}}
+{"date":"2017-07-05T16:00:00.000000","service": "ftp","ip":"186.124.182.126", "port":"3445","request":"/canhaz/gemini-66.gif", "user":"Peter"}
+{"index":{"_id":"2017-07-05T10:00:00.000007"}}
+{"date":"2017-07-05T17:00:00.000000","service": "ftp","ip":"186.124.182.126", "port":"1212","request":"/canhaz/gemini-666.gif", "user":"Peter"}
+{"index":{"_id":"2017-07-05T10:00:00.000008"}}
+{"date":"2017-07-05T18:00:00.000000","service": "ftp","ip":"186.124.182.126", "port":"6000","request":"/canhaz/gemini-66.gif", "user":"Peter"}
+{"index":{"_id":"2017-07-05T10:00:00.000009"}}
+{"date":"2017-07-05T19:00:00.000000","service": "ftp","ip":"186.124.182.126", "port":"3445","request":"/canhaz/gemini-666.gif", "user":"Peter"}
+{"index":{"_id":"2017-07-05T10:00:00.000010"}}
+{"date":"2017-07-05T20:00:00.000000","service": "ftp","ip":"186.124.192.126", "port":"1212","request":"/canhaz/gemini-655.gif", "user":"Peter"}
+{"index":{"_id":"2017-07-05T10:00:00.000011"}}
+{"date":"2017-07-05T21:00:00.000000","service": "ftp","ip":"186.124.192.126", "port":"3445","request":"/canhaz/gemini-6555.gif", "user":"Peter"}
+{"index":{"_id":"2017-07-05T10:00:00.000012"}}
+{"date":"2017-07-05T22:00:00.000000","service": "ftp","ip":"186.124.192.126", "port":"3445","request":"/canhaz/gemini-6555.gif", "user":"Peter"}
+{"index":{"_id":"2017-07-05T10:00:00.000013"}}
+{"date":"2017-07-05T23:00:00.000000","service": "ftp","ip":"186.124.192.126", "port":"3445","request":"/canhaz/gemini-6.gif", "user":"Peter"}
+{"index":{"_id":"2017-07-05T10:00:00.000014"}}
+{"date":"2017-07-05T22:00:00.000000","service": "ftp","ip":"186.124.182.126", "port":"3445","request":"/canhaz/gemini-6.gif", "user":"Peter"}
+{"index":{"_id":"2017-07-05T10:00:00.000015"}}
+{"date":"2017-07-05T21:00:00.000000","service": "ftp","ip":"186.124.182.126", "port":"4343","request":"/canhaz/gemini-6.gif", "user":"Peter"}
+{"index":{"_id":"2017-07-05T10:00:00.000016"}}
+{"date":"2017-07-05T19:00:00.000000","service": "ftp","ip":"186.124.182.126", "port":"1212","request":"/canhaz/gemini-6.gif", "user":"Peter"}
