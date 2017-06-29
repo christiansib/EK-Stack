@@ -1,4 +1,4 @@
-FROM elasticsearch:5.1.1
+FROM elasticsearch:5.4.0
 
 # the --batch option does permission agreements
 RUN elasticsearch-plugin install x-pack --batch
