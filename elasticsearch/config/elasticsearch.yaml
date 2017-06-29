@@ -1,5 +1,5 @@
-#node.master: ${BM_ES_MASTER}
-#node.data: ${BM_ES_DATA}
+node.master: ${BM_ES_MASTER}
+node.data: ${BM_ES_DATA}
 
 # auto indices
 action.auto_create_index: true
