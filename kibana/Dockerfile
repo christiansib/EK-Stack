@@ -1,4 +1,4 @@
-FROM kibana:5.1.1
+FROM kibana:5.4.0
 
 
 RUN kibana-plugin install x-pack
