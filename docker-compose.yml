@@ -3,6 +3,9 @@ version: '2'
 services:
   es-master:
     build: elasticsearch/
+    ports:
+      - "9200:9200"
+      - "9300:9300"
     expose:
       - "9200"
       - "9300"
